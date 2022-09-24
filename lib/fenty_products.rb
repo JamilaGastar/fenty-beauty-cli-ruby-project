@@ -14,8 +14,8 @@ class FentyProducts
     end
 
     def self.list_products_by_product_type(product_type)
-        product_list_url = FENTY_BEAUTY_MAKEUP_URL + product_type
-        get_request_parse_response(product_list_url)
+            product_list_url = FENTY_BEAUTY_MAKEUP_URL + product_type
+            get_request_parse_response(product_list_url)
     end
 
     def self.get_the_product_details(product_name)
@@ -29,6 +29,8 @@ class FentyProducts
 
         response = Net::HTTP.get_response(uri)
         response_json = JSON.parse(response.body)
+
+        
 
         products = response_json.collect do |product|
             attributes = {
