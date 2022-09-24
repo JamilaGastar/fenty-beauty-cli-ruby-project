@@ -1,0 +1,31 @@
+require_relative '../config/environment'
+
+puts "Fenty Beauty Product Search App"
+puts "-------------------------------"
+puts
+
+print "Enter a product type to bring up a list of those products (e.g. lipstick): "
+product_type_list = gets.chomp
+puts
+
+puts "Fenty Beauty #{product_type_list}'s"
+FentyProducts.list_products_by_product_type(product_type_list).each do |product|
+    puts "Product Name: #{product.name}"
+    puts
+end
+
+print "Enter the product name to display the product details: "
+product_name = gets.chomp
+puts 
+
+
+product_details = FentyProducts.get_the_product_details(product_name)
+puts "Product Name: #{product_details.name}"
+puts "Product Price: $#{product_details.price * 1.53}"
+puts "Product Description: #{product_details.description}"
+# puts "Product Shades: #{product.details.product_colors.colour_name}"
+
+
+
+
+
